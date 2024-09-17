@@ -23,6 +23,10 @@ app.set("layout", "./layouts/layout");
  *************************/
 app.use(staticRoutes);
 
+app.get("/", (_req, res) => {
+  res.render("index", { title: "Home" });
+});
+
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
