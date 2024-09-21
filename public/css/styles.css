@@ -8,3 +8,12 @@
 html {
   background-image: url('../images/site/checkerboard.jpg');
 }
+
+body {
+  width: 80%;
+  margin: 0 auto;
+  border: 5px solid #06b3d6;
+  border-radius: 0.5em;
+  background-color: white;
+  padding: 1em;
+}
