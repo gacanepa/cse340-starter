@@ -5,6 +5,14 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 html {
   background-image: url('../images/site/checkerboard.jpg');
 }
@@ -16,4 +24,8 @@ body {
   border-radius: 0.5em;
   background-color: white;
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100% - 4em);
 }
