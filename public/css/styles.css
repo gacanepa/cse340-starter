@@ -30,6 +30,7 @@ body {
 }
 
 #top-header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -47,6 +48,9 @@ body {
 }
 
 #tools {
+  position: absolute;
+  right: 7vw;
+  top: 5vh;
   display: flex;
   justify-content: flex-end;
 }
