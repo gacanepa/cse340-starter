@@ -71,3 +71,8 @@ ul li {
 main {
   flex: 1;
 }
+
+.car-container {
+  display: flex;
+  justify-content: center;
+}
