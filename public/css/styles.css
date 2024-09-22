@@ -10,14 +10,16 @@ html, body {
   margin: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 html {
   background-image: url('../images/site/checkerboard.jpg');
+  align-items: center;
 }
 
 body {
+  color: #252525;
+  font-family: 'Arial', sans-serif;
   width: 80%;
   margin: 0 auto;
   border: 5px solid #06b3d6;
@@ -28,4 +30,38 @@ body {
   flex-direction: column;
   justify-content: center;
   height: calc(100% - 4em);
+}
+
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  width: 100%;
+  top: 2em;
+  left: 1em;
+}
+
+.site-name a {
+  text-decoration: none;
+  font-size: 2em;
+  color: #252525;
+}
+
+#tools a {
+  text-decoration: none;
+  font-size: 0.875em;
+  text-transform: uppercase;
+  color: #252525;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  background-color: #252525;
+  color: white;
+}
+
+ul li {
+  padding: 1em;
 }
