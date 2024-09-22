@@ -33,6 +33,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-top: 3vh;
 }
 
 .site-name a {
@@ -70,6 +71,10 @@ ul li {
 
 main {
   flex: 1;
+}
+
+footer {
+  margin-bottom: 1em;
 }
 
 #car-wrapper {
@@ -117,6 +122,9 @@ main {
 
 #car-upgrades, #car-reviews {
   margin-top: 30vh;
+  ul li {
+    padding: 0.5em;
+  }
 }
 
 #car-upgrades {
