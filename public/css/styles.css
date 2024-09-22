@@ -135,9 +135,10 @@ footer {
 
 #car-upgrades, #car-reviews {
   margin-top: 30vh;
-  ul li {
-    padding: 0.5em;
-  }
+}
+
+#car-upgrades ul li, #car-reviews ul li {
+  padding: 0.5em;
 }
 
 #car-upgrades {
@@ -192,3 +193,4 @@ img {
   color: blue;
   text-decoration: underline;
 }
+
