@@ -75,8 +75,8 @@ main {
 #car-wrapper {
   position: relative;
   display: flex;
-  justify-content: center;
   padding: 1em;
+  justify-content: space-evenly;
 }
 
 #car-container {
@@ -113,4 +113,16 @@ main {
     font-weight: bold;
     font-size: 1em;
   }
+}
+
+#car-upgrades, #car-reviews {
+  margin-top: 30vh;
+}
+
+#car-upgrades {
+  order: 1;
+}
+
+#car-reviews {
+  order: 2;
 }
