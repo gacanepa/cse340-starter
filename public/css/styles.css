@@ -72,7 +72,45 @@ main {
   flex: 1;
 }
 
-.car-container {
+#car-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
+  padding: 1em;
+}
+
+#car-container {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+#car-features {
+  position: absolute;
+  color: #03758c;
+  background-color: #f0f0f0;
+  font-size: 1.25em;
+  opacity: 0.8;
+  margin: 0;
+  padding: 1em;
+  top: 1em;
+  left: 40%;
+  transform: translateX(-70%);
+  h2 {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    margin: 0;
+    padding: 0.25em 0;
+  }
+  button {
+    background-color: #06b3d6;
+    border: none;
+    margin-top: 2em;
+    padding: 1em 2em;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+  }
 }
