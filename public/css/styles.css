@@ -60,3 +60,14 @@ ul {
 ul li {
   padding: 1em;
 }
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+main {
+  flex: 1;
+}
