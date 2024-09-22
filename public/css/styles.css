@@ -129,18 +129,50 @@ footer {
 
 #car-upgrades {
   order: 1;
-}
-
-#car-upgrades ul li {
-  list-style: none;
-  text-align: center;
-  width: 100%;
-}
-
-li > .image-container {
-  background-color: #06b3d6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #car-reviews {
   order: 2;
+}
+
+#car-upgrades ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: auto;
+  justify-items: center;
+  padding: 0;
+}
+
+#car-upgrades li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#car-upgrades .image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #06b3d6;
+  width: 100%;
+}
+
+#car-upgrades .image-container img {
+  width: 4em;
+  height: 4em;
+
+}
+
+img {
+  max-width: 80%;
+}
+
+#car-upgrades li div:last-child {
+  font-size: 0.875em;
 }
