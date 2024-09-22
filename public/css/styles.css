@@ -11,14 +11,14 @@ html, body {
 }
 
 html {
-  background-image: url('../images/site/checkerboard.jpg');
+  background-image: url('../images/site/small_check.jpg');
   align-items: center;
 }
 
 body {
   color: #252525;
   font-family: 'Arial', sans-serif;
-  width: 75%;
+  width: 90%;
   margin: 2vh auto;
   border: 5px solid #06b3d6;
   border-radius: 0.5em;
