@@ -36,10 +36,19 @@ body {
   margin-top: 3vh;
 }
 
+.site-name {
+  justify-content: flex-start;
+}
+
 .site-name a {
   text-decoration: none;
   font-size: 2em;
   color: #252525;
+}
+
+#tools {
+  display: flex;
+  justify-content: flex-end;
 }
 
 #tools a {
@@ -175,4 +184,7 @@ img {
 
 #car-upgrades li div:last-child {
   font-size: 0.875em;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
 }
