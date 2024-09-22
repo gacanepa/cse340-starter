@@ -133,6 +133,12 @@ footer {
 
 #car-upgrades ul li {
   list-style: none;
+  text-align: center;
+  width: 100%;
+}
+
+li > .image-container {
+  background-color: #06b3d6;
 }
 
 #car-reviews {
