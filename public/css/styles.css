@@ -131,6 +131,10 @@ footer {
   order: 1;
 }
 
+#car-upgrades ul li {
+  list-style: none;
+}
+
 #car-reviews {
   order: 2;
 }
