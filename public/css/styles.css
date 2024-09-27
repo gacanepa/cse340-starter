@@ -114,23 +114,24 @@ footer {
   top: 1em;
   left: 40%;
   transform: translateX(-70%);
-  h2 {
-    margin: 0;
-    padding: 0;
-  }
-  p {
-    margin: 0;
-    padding: 0.25em 0;
-  }
-  button {
-    background-color: #06b3d6;
-    border: none;
-    margin-top: 2em;
-    padding: 1em 2em;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1em;
-  }
+}
+
+#car-features h2 {
+  margin: 0;
+  padding: 0;
+}
+#car-features p {
+  margin: 0;
+  padding: 0.25em 0;
+}
+#car-features button {
+  background-color: #06b3d6;
+  border: none;
+  margin-top: 2em;
+  padding: 1em 2em;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 #car-upgrades, #car-reviews {
