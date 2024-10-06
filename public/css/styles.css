@@ -71,8 +71,20 @@ nav ul {
   padding: 0;
 }
 
-ul li {
+nav ul li {
   padding: 1em;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5em 1em;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #252525;
+  background-color: white;
 }
 
 #wrapper {
@@ -195,3 +207,18 @@ img {
   text-decoration: underline;
 }
 
+#inv-display {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+
+#inv-display li {
+  padding: 1em;
+  border: 2px solid lightgrey;
+  border-radius: 0.5em;
+}
+
+#inv-display li img {
+  justify-content: center;
+}
