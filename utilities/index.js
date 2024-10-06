@@ -51,4 +51,22 @@ Util.buildClassificationGrid = async function(data){
   return grid;
 };
 
+/* **************************************
+* Build the detail view HTML
+* ************************************ */
+
+Util.buildDetail = async function(data) {
+  let detail = '<div id="detail-display">'
+  detail += '<img src="' + data.inv_image + '" alt="Image of ' + data.inv_make + ' ' + data.inv_model;
+  detail += '<div id="details">'
+  detail += '<p><strong>Price:</strong> $' + new Intl.NumberFormat('en-US').format(data.inv_price) + '</p>';
+  detail += '<p><strong>Year:</strong> ' + data.inv_year + '</p>';
+  detail += '<p><strong>Description:</strong> ' + data.inv_description + '</p>';
+  detail += '<p><strong>Mileage:</strong> ' + new Intl.NumberFormat('en-US').format(data.inv_miles) + '</p>';
+  detail += '<p><strong>Color:</strong> ' + data.inv_color + '</p>';
+  detail += '</div>'
+  detail += '</div>'
+  return detail;
+};
+
 module.exports = Util;
