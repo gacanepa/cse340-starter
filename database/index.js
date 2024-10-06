@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "development") {
       // Necessary for local testing when using self-signed certificates
       rejectUnauthorized: false,
     },
-})
+  });
 
 // Added for troubleshooting queries during development
 module.exports = {
