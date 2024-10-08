@@ -12,6 +12,11 @@ const staticRoutes = require("./routes/static");
 const baseController = require("./controllers/baseController");
 const inventoryRoute = require("./routes/inventory-route");
 const utilities = require("./utilities");
+const session = require("express-session");
+const pool = require("./database");
+const sessionConnector = require("connect-pg-simple");
+const flashConnector = require("connect-flash");
+const expressMessagesHandler = require("express-messages");
 
 /* ***********************
  * View Engine and Templates
@@ -19,6 +24,27 @@ const utilities = require("./utilities");
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts/layout");
+
+/* ***********************
+ * Middleware
+ * ************************/
+app.use(session({
+  store: new (sessionConnector(session))({
+    createTableIfMissing: true,
+    pool,
+  }),
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  name: 'sessionId',
+}));
+
+// Express Messages Middleware
+app.use(flashConnector());
+app.use(function(req, res, next){
+  res.locals.messages = expressMessagesHandler(req, res);
+  next();
+});
 
 /* ***********************
  * Routes
