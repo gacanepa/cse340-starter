@@ -223,7 +223,7 @@ img {
   justify-content: center;
 }
 
-#login-area {
+#login-area, #register-area {
   width: 20vw;
   padding: 1em 3em;
   border: 1px solid #ccc;
@@ -232,18 +232,18 @@ img {
   text-align: center;
 }
 
-#login-form {
+#login-form, #register-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-#login-form label {
+#login-form label, #register-form label {
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
-#login-form input {
+#login-form input, #register-form input {
   width: 100%;
   padding: 0.5em;
   margin-bottom: 1.25em;
@@ -251,7 +251,7 @@ img {
   border-radius: 0.25em;
 }
 
-#login-form button {
+#login-form button, #register-form button {
   width: 30%;
   padding: 0.5em;
   background-color: #007BFF;
@@ -261,10 +261,10 @@ img {
   cursor: pointer;
 }
 
-#login-form button:hover {
+#login-form button:hover, #register-form button:hover {
   background-color: #0056b3;
 }
 
-#login-form p {
+#login-form p, #register-form p {
   margin-top: 1.25em;
 }
