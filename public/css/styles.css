@@ -268,3 +268,15 @@ img {
 #login-form p, #register-form p {
   margin-top: 1.25em;
 }
+
+#car-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  #car-info {
+    flex-direction: column;
+  }
+}
