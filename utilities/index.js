@@ -69,6 +69,14 @@ Util.buildDetail = async function(data) {
   return detail;
 };
 
+Util.getManagementLinks = async function(){
+  let links = '<ul>';
+  links += '<li><a href="/inv/classification" title="Add new classification">Add new classification</a></li>';
+  links += '<li><a href="/inv/add" title="Add new car">Add new car</a></li>';
+  links += '</ul>';
+  return links;
+};
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
