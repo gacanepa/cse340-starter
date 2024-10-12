@@ -57,7 +57,7 @@ Util.buildClassificationGrid = async function(data){
 
 Util.buildDetail = async function(data) {
   let detail = '<div id="detail-display">'
-  detail += '<img src="' + data.inv_image + '" alt="Image of ' + data.inv_make + ' ' + data.inv_model;
+  detail += '<img src="' + data.inv_image + '" alt="Image of ' + data.inv_make + ' ' + data.inv_model + '">';
   detail += '<div id="details">'
   detail += '<p><strong>Price:</strong> $' + new Intl.NumberFormat('en-US').format(data.inv_price) + '</p>';
   detail += '<p><strong>Year:</strong> ' + data.inv_year + '</p>';
