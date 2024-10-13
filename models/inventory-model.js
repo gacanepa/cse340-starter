@@ -39,7 +39,7 @@ async function getInventoryById(id) {
  * *********************** */
 async function addClassification(classification_name) {
   try {
-    await pool.query("INSERT INTO public.classification (classification_name) VALUES ($1)", [classification_name]);
+    return await pool.query("INSERT INTO public.classification (classification_name) VALUES ($1) RETURNING *", [classification_name]);
   } catch (error) {
     console.error("addClassification error " + error);
   }
@@ -48,10 +48,10 @@ async function addClassification(classification_name) {
 /* **********************
  *   Check for existing classification
  * ********************* */
-async function checkExistingClassification(account_email){
+async function checkExistingClassification(classification_name){
   try {
     const sql = "SELECT * FROM public.classification WHERE classification_name = $1"
-    const classification = await pool.query(sql, [classification])
+    const classification = await pool.query(sql, [classification_name])
     return classification.rowCount
   } catch (error) {
     return error.message
