@@ -2,7 +2,8 @@ const express = require("express");
 const router = new express.Router();
 const invController = require("../controllers/inventory-controller");
 const utilities = require("../utilities");
-const regValidate = require("../utilities/classification-validation");
+const regValidateClassification = require("../utilities/classification-validation");
+const regValidateInventory = require("../utilities/inventory-validation");
 
 // Route to build management view
 router.get("/", utilities.handleErrors(invController.buildManagement));
@@ -10,12 +11,23 @@ router.get("/", utilities.handleErrors(invController.buildManagement));
 // Route to get the classification form
 router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
 
+// Route to get the classification form
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory));
+
 // Route to add new classifications
 router.post(
   "/add-classification",
-  regValidate.classificationRules(),
-  regValidate.checkRegData,
+  regValidateClassification.classificationRules(),
+  regValidateClassification.checkRegData,
   utilities.handleErrors(invController.addClassification)
+);
+
+// Route to add new cars
+router.post(
+  "/add-inventory",
+  regValidateInventory.classificationRules(),
+  regValidateInventory.checkRegData,
+  utilities.handleErrors(invController.addInventory)
 );
 
 // Route to build inventory by classification view

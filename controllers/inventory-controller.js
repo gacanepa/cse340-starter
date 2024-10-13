@@ -28,6 +28,20 @@ invCont.buildAddClassification = async function (req, res, next) {
   });
 }
 
+/* ***************************
+ *  Build inventory form
+ * ************************ */
+invCont.buildAddInventory = async function (req, res, next) {
+  const classifications = await invModel.getClassifications();
+  const nav = await utilities.getNav();
+  res.render("./inventory/add-inventory", {
+    title: "Add a car",
+    classifications: classifications.rows,
+    nav,
+    errors: null,
+  });
+}
+
 /* ****************************************
  *  Build inventory by classification view
  * ************************************* */
@@ -66,6 +80,55 @@ invCont.addClassification = async function (req, res, next) {
     req.flash("notice", "Sorry, the classification was not added.")
     res.status(501).render("inventory/add-classification", {
       title: "Add new classification",
+      nav,
+    })
+  }
+}
+
+/* ************************
+ *  Add new inventory
+ * ********************* */
+invCont.addInventory = async function (req, res, next) {
+  const {
+    inv_make,
+    inv_model,
+    inv_price,
+    inv_color,
+    inv_year,
+    inv_description,
+    inv_miles,
+    classification_id,
+   } = req.body;
+  const newCar = await invModel.addInventory(
+    inv_make,
+    inv_model,
+    inv_price,
+    inv_color,
+    inv_year,
+    inv_description,
+    '/images/vehicles/no-image.png',
+    '/images/vehicles/no-image-tn.png',
+    inv_miles,
+    classification_id
+  );
+  const classifications = await invModel.getClassifications();
+  const nav = await utilities.getNav();
+
+  if (newCar) {
+    req.flash(
+      "notice",
+      `Congratulations, a new ${inv_color} ${inv_make}-${inv_model} was added.`
+    )
+    res.status(201).render("inventory/add-inventory", {
+      title: "Add new inventory",
+      nav,
+      errors: null,
+      classifications: classifications.rows,
+    })
+  } else {
+    req.flash("notice", "Sorry, the car was not added.")
+    res.status(501).render("inventory/add-inventory", {
+      title: "Add new car",
       nav,
     })
   }

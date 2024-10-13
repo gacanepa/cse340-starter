@@ -45,6 +45,31 @@ async function addClassification(classification_name) {
   }
 }
 
+/* **************************
+ *  Insert new inventory
+ * *********************** */
+async function addInventory(
+  inv_make,
+  inv_model,
+  inv_price,
+  inv_color,
+  inv_year,
+  inv_description,
+  inv_image,
+  inv_thumbnail,
+  inv_miles,
+  classification_id
+) {
+  try {
+    return await pool.query(
+      "INSERT INTO public.inventory (inv_make, inv_model, inv_price, inv_color, inv_year, inv_description, inv_image, inv_thumbnail, inv_miles, classification_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *",
+      [inv_make, inv_model, inv_price, inv_color, inv_year, inv_description, inv_image, inv_thumbnail, inv_miles, classification_id]
+    );
+  } catch (error) {
+    console.error("addInventory error " + error);
+  }
+}
+
 /* **********************
  *   Check for existing classification
  * ********************* */
@@ -64,5 +89,6 @@ module.exports = {
   getInventoryByClassificationId,
   getInventoryById,
   addClassification,
+  addInventory,
   checkExistingClassification,
 };
