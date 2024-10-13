@@ -130,6 +130,7 @@ invCont.addInventory = async function (req, res, next) {
     res.status(501).render("inventory/add-inventory", {
       title: "Add new car",
       nav,
+      classifications: classifications.rows,
     })
   }
 }

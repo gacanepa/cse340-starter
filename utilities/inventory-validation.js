@@ -1,5 +1,6 @@
 const utilities = require(".")
 const { body, validationResult } = require("express-validator")
+const invModel = require("../models/inventory-model")
 const validate = {}
 
 /*  **********************************
@@ -66,12 +67,17 @@ validate.checkRegData = async (req, res, next) => {
     inv_price,
     inv_color,
     inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_miles,
     classification_id,
   } = req.body
   let errors = []
   errors = validationResult(req)
   if (!errors.isEmpty()) {
     let nav = await utilities.getNav()
+    const classifications = await invModel.getClassifications()
     res.render("inventory/add-inventory", {
       errors,
       title: "Add new car",
@@ -81,7 +87,12 @@ validate.checkRegData = async (req, res, next) => {
       inv_price,
       inv_color,
       inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_miles,
       classification_id,
+      classifications: classifications.rows,
     })
     return
   }
