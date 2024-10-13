@@ -5,7 +5,7 @@
     res.redirect('/')
   } %>
   <%- messages() %>
-  <form action="/inventory/add-classification" method="post" id="classification-form">
+  <form action="/inv/add-classification" method="post" id="classification-form">
     <label for="classification">Add new classification</label>
     <input type="text" id="classification" name="classification_name" required
       minlength="3"

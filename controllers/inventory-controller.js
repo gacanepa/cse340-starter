@@ -48,8 +48,26 @@ invCont.buildByClassificationId = async function (req, res, next) {
  *  Add new classification
  * ********************* */
 invCont.addClassification = async function (req, res, next) {
-  const classification_name = req.body.classification_name;
-  await invModel.addClassification(classification_name);
+  const { classification_name } = req.body;
+  const newClassification = await invModel.addClassification(classification_name);
+  const nav = await utilities.getNav();
+
+  if (newClassification) {
+    req.flash(
+      "notice",
+      `Congratulations, ${classification_name} was  added.`
+    )
+    res.status(201).render("inventory/add-classification", {
+      title: "Add new classification",
+      nav,
+    })
+  } else {
+    req.flash("notice", "Sorry, the classification was not added.")
+    res.status(501).render("inventory/add-classification", {
+      title: "Add new classification",
+      nav,
+    })
+  }
 }
 
 /* ****************************************
