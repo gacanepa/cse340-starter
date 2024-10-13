@@ -223,7 +223,7 @@ img {
   justify-content: center;
 }
 
-#login-area, #register-area {
+#login-area, #register-area, #classification-form {
   width: 20vw;
   padding: 1em 3em;
   border: 1px solid #ccc;
@@ -232,18 +232,18 @@ img {
   text-align: center;
 }
 
-#login-form, #register-form {
+#login-form, #register-form, #classification-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-#login-form label, #register-form label {
+#login-form label, #register-form label, #classification-form label {
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
-#login-form input, #register-form input {
+#login-form input, #register-form input, #classification-form input {
   width: 100%;
   padding: 0.5em;
   margin-bottom: 1.25em;
@@ -251,7 +251,7 @@ img {
   border-radius: 0.25em;
 }
 
-#login-form button, #register-form button {
+#login-form button, #register-form button, #classification-form button {
   width: 30%;
   padding: 0.5em;
   background-color: #007BFF;
@@ -261,7 +261,7 @@ img {
   cursor: pointer;
 }
 
-#login-form button:hover, #register-form button:hover {
+#login-form button:hover, #register-form button:hover, #classification-form button:hover {
   background-color: #0056b3;
 }
 

@@ -16,6 +16,18 @@ invCont.buildManagement = async function (req, res, next) {
   });
 }
 
+/* ***************************
+ *  Build classification form
+ * ************************ */
+invCont.buildAddClassification = async function (req, res, next) {
+  const nav = await utilities.getNav();
+  res.render("./inventory/add-classification", {
+    title: "Add a classification",
+    nav,
+    errors: null,
+  });
+}
+
 /* ****************************************
  *  Build inventory by classification view
  * ************************************* */
@@ -31,6 +43,14 @@ invCont.buildByClassificationId = async function (req, res, next) {
     grid,
   });
 };
+
+/* ************************
+ *  Add new classification
+ * ********************* */
+invCont.addClassification = async function (req, res, next) {
+  const classification_name = req.body.classification_name;
+  await invModel.addClassification(classification_name);
+}
 
 /* ****************************************
  *  Build inventory by detail view
