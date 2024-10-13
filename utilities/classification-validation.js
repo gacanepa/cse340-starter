@@ -14,7 +14,7 @@ validate.classificationRules = () => {
       .escape()
       .notEmpty()
       .isLength({ min: 3 })
-      .withMessage("Please provide a classification name")
+      .withMessage("Please provide a valid classification name (3 characters minimum without special characters).") // on error this message is sent.
       .custom(async (classification_name) => {
         const classificationExists = await invModel.checkExistingClassification(classification_name)
         if (classificationExists){
@@ -33,7 +33,7 @@ validate.checkRegData = async (req, res, next) => {
   errors = validationResult(req)
   if (!errors.isEmpty()) {
     let nav = await utilities.getNav()
-    res.render("/inv/add-classification", {
+    res.render("inventory/add-classification", {
       errors,
       title: "Add new classification",
       nav,
