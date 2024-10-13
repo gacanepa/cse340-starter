@@ -5,6 +5,13 @@
     res.redirect('/')
   } %>
   <%- messages() %>
+  <% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
   <form action="/inv/add-classification" method="post" id="classification-form">
     <label for="classification">Add new classification</label>
     <input type="text" id="classification" name="classification_name" required
