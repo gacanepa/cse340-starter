@@ -46,14 +46,15 @@
         value="<%= locals.inv_mileage %>"
       >
     </div>
-    <label for="">Color</label>
+    <label for="color">Color</label>
     <input type="text" id="color" name="inv_color" required
       minlength="3"
       pattern="[A-Za-z\d]{3,}"
       title="The color must be at least 3 characters in length without any special characters"
       value="<%= locals.inv_color %>"
+    >
     <label for="description">Description</label>
-    <input type="textarea" id="description" name="inv_description" required
+    <input type="text" id="description" name="inv_description" required
       minlength="10"
       maxlength="120"
       pattern="[A-Za-z\s]{3,120}"
@@ -69,6 +70,7 @@
     >
     <label for="classification">Classification</label>
     <select id="classification" name="classification_id" required>
+      <option value="" disabled selected>Select a classification</option>
       <% classifications.forEach(classification => { %>
         <option value="<%= classification.classification_id %>"><%= classification.classification_name %></option>
       <% }) %>
