@@ -18,7 +18,8 @@ const pool = require("./database");
 const sessionConnector = require("connect-pg-simple");
 const flashConnector = require("connect-flash");
 const expressMessagesHandler = require("express-messages");
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 /* ***********************
  * View Engine and Templates
@@ -42,6 +43,7 @@ app.use(session({
 }));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieParser());
 
 // Express Messages Middleware
 app.use(flashConnector());
