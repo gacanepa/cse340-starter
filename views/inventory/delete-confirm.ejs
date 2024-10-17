@@ -1,0 +1,59 @@
+<div id="delete-inventory">
+  <% if (title) { %>
+    <h1><%= title %></h1>
+  <% } else {
+    res.redirect('/')
+  } %>
+  <%- messages() %>
+  <% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().filter(error => error.msg !== 'Invalid value').forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+  <form action="/inv/delete" method="post" id="inventory-form">
+    <div class="form-group">
+      <label for="make">Make</label>
+      <input type="text" id="make" name="inv_make" required
+        minlength="3"
+        pattern="[A-Za-z\d]{3,}"
+        disabled
+        title="The make must be at least 3 characters in length without any special characters"
+        value="<%= locals.inv_make %>"
+      >
+      <label for="model">Model</label>
+      <input type="text" id="model" name="inv_model" required
+        minlength="3"
+        pattern="[A-Za-z\d]{3,}"
+        disabled
+        title="The model must be at least 3 characters in length without any special characters"
+        value="<%= locals.inv_model %>"
+      >
+    </div>
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input type="text" id="year" name="inv_year" required
+        minlength="4"
+        maxlength="4"
+        pattern="[0-9]{4}"
+        disabled
+        title="The year must be exactly 4 digits"
+        value="<%= locals.inv_year %>"
+      >
+    </div>
+    <label for="price">Price</label>
+    <input type="text" id="price" name="inv_price" required
+      minlength="1"
+      pattern="[0-9]{1,}"
+      disabled
+      title="The price must be at least 1 digit"
+      value="<%= locals.inv_price %>"
+    >
+    <button type="submit">Delete</button>
+    <input type="hidden" name="inv_id"
+      <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+    <% } %>>
+  </form>
+  <p>Confirm Deletion - The delete is permanent.</p>
+</div>
