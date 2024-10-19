@@ -7,10 +7,10 @@
   <%- messages() %>
   <% if (errors) { %>
     <ul class="notice">
-   <% errors.array().filter(error => error.msg !== 'Invalid value').forEach(error => { %>
-     <li><%= error.msg %></li>
-  <%  }) %>
-   </ul>
+      <% errors.array().filter(error => error.msg !== 'Invalid value').forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
   <% } %>
   <form action="/inv/update" method="post" id="inventory-form">
     <div class="form-group">
@@ -76,14 +76,14 @@
       <% }) %>
     </select>
     <button type="submit">Update</button>
-    <input type="hidden" name="inv_id"
-      <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
-    <% } %>>
-    <input type="hidden" name="inv_image"
-    <% if(locals.inv_image) { %> value="<%= locals.inv_image %>"
-  <% } %>>
-  <input type="hidden" name="inv_thumbnail"
-  <% if(locals.inv_thumbnail") { %> value="<%= locals.inv_thumbnail" %>"
-<% } %>>
+    <% if (locals.inv_id) { %>
+      <input type="hidden" name="inv_id" value="<%= locals.inv_id %>">
+    <% } %>
+    <% if (locals.inv_image) { %>
+      <input type="hidden" name="inv_image" value="<%= locals.inv_image %>">
+    <% } %>
+    <% if (locals.inv_thumbnail) { %>
+      <input type="hidden" name="inv_thumbnail" value="<%= locals.inv_thumbnail %>">
+    <% } %>
   </form>
 </div>
