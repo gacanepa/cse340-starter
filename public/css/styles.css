@@ -290,6 +290,10 @@ img {
   margin-right: 0;
 }
 
+#classificationList {
+  width: 15vw;
+}
+
 @media (max-width: 1024px) {
   #car-info {
     flex-direction: column;
