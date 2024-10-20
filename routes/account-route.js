@@ -23,4 +23,19 @@ router.post(
   utilities.handleErrors(accountController.accountLogin)
 )
 
+// Get the account info
+router.get(
+  "/update/:accountId",
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.getAccountInfo)
+)
+
+// Process the info update request
+router.post(
+  "/update/",
+  regValidate.updateRules(),
+  regValidate.checkUpdateData,
+  utilities.handleErrors(accountController.updateAccount)
+)
+
 module.exports = router;

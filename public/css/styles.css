@@ -223,7 +223,10 @@ img {
   justify-content: center;
 }
 
-#login-area, #register-area, #classification-form, #inventory-form {
+#login-area,
+#register-area,
+#classification-form,
+#inventory-form {
   width: 20vw;
   padding: 1em 3em;
   border: 1px solid #ccc;
@@ -232,18 +235,33 @@ img {
   text-align: center;
 }
 
-#login-form, #register-form, #classification-form, #inventory-form {
+#login-form,
+#register-form,
+#classification-form,
+#inventory-form,
+#update-form,
+#update-password-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-#login-form label, #register-form label, #classification-form label, #inventory-form label {
+#login-form label,
+#register-form label,
+#classification-form label,
+#inventory-form label,
+#update-form label,
+#update-password-form label {
   margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
-#login-form input, #register-form input, #classification-form input, #inventory-form input,select {
+#login-form input,
+#register-form input,
+#classification-form input,
+#inventory-form input,select,
+#update-form input,
+#update-password-form input {
   width: 100%;
   padding: 0.5em;
   margin-bottom: 1.25em;
@@ -251,7 +269,12 @@ img {
   border-radius: 0.25em;
 }
 
-#login-form button, #register-form button, #classification-form button, #inventory-form button {
+#login-form button,
+#register-form button,
+#classification-form button,
+#inventory-form button,
+#update-form button,
+#update-password-form button {
   width: 30%;
   padding: 0.5em;
   background-color: #007BFF;
@@ -261,7 +284,12 @@ img {
   cursor: pointer;
 }
 
-#login-form button:hover, #register-form button:hover, #classification-form button:hover, #inventory-form button:hover {
+#login-form button:hover,
+#register-form button:hover,
+#classification-form button:hover,
+#inventory-form button:hover,
+#update-form button:hover,
+#update-password-form button:hover {
   background-color: #0056b3;
 }
 

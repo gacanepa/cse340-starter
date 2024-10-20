@@ -15,6 +15,53 @@ async function buildLogin(req, res, next) {
   });
 }
 
+async function getAccountInfo(req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("account/update", {
+    title: "Update Account",
+    nav,
+    errors: null,
+  });
+}
+
+async function updateAccount(req, res, next) {
+  let nav = await utilities.getNav()
+  const {
+    account_id,
+    account_firstname,
+    account_lastname,
+    account_email,
+  } = req.body
+  const updateResult = await accountModel.updateAccount(
+    account_id,
+    account_firstname,
+    account_lastname,
+    account_email,
+  )
+
+  if (updateResult) {
+    req.flash("notice", `${account_firstname}, your account information was successfully updated.`)
+    res.locals.accountData = {
+      ...res.locals.accountData,
+      account_firstname,
+      account_lastname,
+      account_email,
+    }
+    res.redirect("/account/")
+  } else {
+    req.flash("warning", "Sorry, the update failed.")
+    res.status(501).render("account/update", {
+    title: "Edit " + account_firstname,
+    nav,
+    errors: null,
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_id,
+    })
+  }
+}
+
 async function buildRegistration(req, res, next) {
   let nav = await utilities.getNav();
   res.render("account/register", {
@@ -133,4 +180,6 @@ module.exports = {
   accountLogin,
   buildManagement,
   accountLogout,
+  getAccountInfo,
+  updateAccount,
 };
