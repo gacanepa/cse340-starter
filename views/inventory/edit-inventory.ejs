@@ -58,8 +58,7 @@
     <input type="text" id="description" name="inv_description" required
       minlength="10"
       maxlength="120"
-      pattern="[A-Za-z\s]{10,120}"
-      title="The description must be at least 10 characters in length and not include any special characters"
+      title="The description must be between 10 and 120 characters in length"
       value="<%= locals.inv_description %>"
     >
     <label for="price">Price</label>
