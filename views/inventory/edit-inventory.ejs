@@ -1,3 +1,4 @@
+<script src="/js/inv-update.js" defer></script>
 <div id="add-inventory">
   <% if (title) { %>
     <h1><%= title %></h1>
@@ -75,7 +76,7 @@
         <option value="<%= classification.classification_id %>"><%= classification.classification_name %></option>
       <% }) %>
     </select>
-    <button type="submit">Update</button>
+    <button type="submit" disabled>Update</button>
     <% if (locals.inv_id) { %>
       <input type="hidden" name="inv_id" value="<%= locals.inv_id %>">
     <% } %>
