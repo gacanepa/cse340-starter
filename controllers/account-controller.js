@@ -117,10 +117,20 @@ async function buildManagement(req, res, next) {
   });
 }
 
+async function accountLogout(req, res) {
+  let nav = await utilities.getNav();
+  res.render("account/logout", {
+    title: "Logout",
+    nav,
+    errors: null,
+  });
+}
+
 module.exports = {
   buildLogin,
   buildRegistration,
   registerAccount,
   accountLogin,
   buildManagement,
+  accountLogout,
 };

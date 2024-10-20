@@ -134,6 +134,15 @@ Util.checkLogin = (req, res, next) => {
 }
 
 /* ****************************************
+ *  Logout
+ * ************************************ */
+Util.logout = (req, res, next) => {
+  res.clearCookie("jwt")
+  req.flash("notice", "You have been logged out.")
+  return res.redirect("/account/login")
+}
+
+/* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
  * General Error Handling

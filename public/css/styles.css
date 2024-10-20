@@ -294,6 +294,16 @@ img {
   width: 15vw;
 }
 
+ul.notice {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.notice li {
+  padding: 0.5em;
+  background-color: darkseagreen;
+}
+
 @media (max-width: 1024px) {
   #car-info {
     flex-direction: column;
