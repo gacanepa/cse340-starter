@@ -294,7 +294,7 @@ img {
   width: 15vw;
 }
 
-ul.notice {
+ul.notice, ul.warning {
   list-style-type: none;
   padding: 0;
 }
@@ -302,6 +302,11 @@ ul.notice {
 ul.notice li {
   padding: 0.5em;
   background-color: darkseagreen;
+}
+
+ul.warning li {
+  padding: 0.5em;
+  background-color: lightcoral;
 }
 
 @media (max-width: 1024px) {

@@ -133,6 +133,15 @@ Util.checkLogin = (req, res, next) => {
   }
 }
 
+Util.checkAccountType = (req, res, next) => {
+  if (["employee", "admin"].includes(res.locals.accountData?.account_type.toLowerCase())) {
+    next()
+  } else {
+    req.flash("warning", "You do not have permission to view this page.")
+    return res.redirect("/account/")
+  }
+}
+
 /* ****************************************
  *  Logout
  * ************************************ */
