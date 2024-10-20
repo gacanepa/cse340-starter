@@ -148,7 +148,7 @@ Util.checkAccountType = (req, res, next) => {
 Util.logout = (req, res, next) => {
   res.clearCookie("jwt")
   req.flash("notice", "You have been logged out.")
-  return res.redirect("/account/login")
+  return res.redirect("/")
 }
 
 /* ****************************************
