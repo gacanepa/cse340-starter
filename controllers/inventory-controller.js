@@ -242,7 +242,8 @@ invCont.updateInventory = async function (req, res, next) {
   )
 
   if (updateResult) {
-    const itemName = updateResult.inv_make + " " + updateResult.inv_model
+    const item = updateResult.rows[0];
+    const itemName = item.inv_make + " " + item.inv_model
     req.flash("notice", `The ${itemName} was successfully updated.`)
     res.redirect("/inv/")
   } else {
@@ -309,8 +310,7 @@ invCont.deleteInventory = async function (req, res, next) {
   const deleteResult = await invModel.deleteInventory(inv_id)
 
   if (deleteResult) {
-    const itemName = inv_make + " " + inv_model
-    req.flash("notice", `The ${itemName} was successfully deleted.`)
+    req.flash("notice", `The car was successfully deleted from the inventory.`)
     res.redirect("/inv/")
   } else {
     const classificationSelect = await utilities.buildClassificationList(classification_id)
