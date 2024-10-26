@@ -38,4 +38,12 @@ router.post(
   utilities.handleErrors(accountController.updateAccount)
 )
 
+// Process the info update request
+router.post(
+  "/update/password/",
+  regValidate.updatePasswordRules(),
+  regValidate.checkUpdatePasswordData,
+  utilities.handleErrors(accountController.updatePassword)
+)
+
 module.exports = router;

@@ -23,12 +23,13 @@
     <button type="submit">Update</button>
   </form>
   <h2>Change Password</h2>
-  <form action="/account/update/password/<%= locals.accountData.account_id %>" method="post" id="update-password-form">
+  <form action="/account/update/password/" method="post" id="update-password-form">
     <label for="account_password">Password</label>
     <input type="password" id="account_password" name="account_password" required
       minlength="12"
       pattern="(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}"
       title="Password must be at least 12 characters long, contain at least one uppercase letter, one number, and one special character.">
+    <input type="hidden" id="account_id" name="account_id" value="<%= locals.accountData.account_id %>">
     <button type="submit">Update</button>
   </form>
 </div>

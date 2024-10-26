@@ -173,6 +173,49 @@ async function accountLogout(req, res) {
   });
 }
 
+/* ****************************************
+*  Process Registration
+* *************************************** */
+async function updatePassword(req, res) {
+  let nav = await utilities.getNav()
+  const { account_id, account_password } = req.body
+
+  // Hash the password before storing
+  let hashedPassword;
+  try {
+    // regular password and cost (salt is generated automatically)
+    hashedPassword = await bcrypt.hashSync(account_password, 10)
+  } catch (error) {
+    req.flash("notice", 'Sorry, there was an error processing the registration.')
+    res.status(500).render("account/management", {
+      title: "Update Password",
+      nav,
+      errors: null,
+    })
+  }
+
+  const regResult = await accountModel.updatePassword(account_id, hashedPassword)
+
+  if (regResult) {
+    req.flash(
+      "notice",
+      `Your password has been updated successfully.`
+    )
+    res.status(201).render("account/management", {
+      title: "Account Management",
+      nav,
+      errors: null,
+    })
+  } else {
+    req.flash("notice", "Sorry, the password update failed.")
+    res.status(501).render("account/management", {
+      title: "Password Update",
+      nav,
+      errors: null,
+    })
+  }
+}
+
 module.exports = {
   buildLogin,
   buildRegistration,
@@ -182,4 +225,5 @@ module.exports = {
   accountLogout,
   getAccountInfo,
   updateAccount,
+  updatePassword,
 };
