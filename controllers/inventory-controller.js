@@ -242,8 +242,7 @@ invCont.updateInventory = async function (req, res, next) {
   )
 
   if (updateResult) {
-    const item = updateResult.rows[0];
-    const itemName = item.inv_make + " " + item.inv_model
+    const itemName = updateResult.inv_make + " " + updateResult.inv_model
     req.flash("notice", `The ${itemName} was successfully updated.`)
     res.redirect("/inv/")
   } else {
