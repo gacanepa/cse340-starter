@@ -50,10 +50,10 @@ CREATE OR REPLACE FUNCTION public.log_inventory_changes()
 $BODY$
 BEGIN
     IF TG_OP = 'DELETE' THEN
-        INSERT INTO public.audit_log (audit_action, audit_table, audit_user)
+        INSERT INTO public.audit_log (audit_action, audit_table, item_id)
         VALUES (TG_OP, 'inventory', OLD.inv_id);
     ELSE
-        INSERT INTO public.audit_log (audit_action, audit_table, audit_user)
+        INSERT INTO public.audit_log (audit_action, audit_table, item_id)
         VALUES (TG_OP, 'inventory', NEW.inv_id);
     END IF;
     RETURN NEW;
