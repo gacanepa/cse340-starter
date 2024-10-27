@@ -73,6 +73,12 @@ router.get(
   utilities.handleErrors(invController.deleteInventoryView)
 )
 
+router.get(
+  "/auditLog",
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.getAuditLog)
+)
+
 router.post(
   "/delete/",
   utilities.checkAccountType,

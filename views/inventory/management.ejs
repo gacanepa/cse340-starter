@@ -14,11 +14,42 @@
     Update account information
   </a>
 </p>
-<h2>Manage Inventory</h2>
-<p>Select a classification from the list:</p>
-
-<%- classificationSelect %>
-
-<table id="inventoryDisplay"></table>
+<div id="content-area">
+  <div id="inventory-area">
+    <h2>Manage Inventory</h2>
+    <p>Select a classification from the list:</p>
+    
+    <%- classificationSelect %>
+    
+    <table id="inventoryDisplay"></table>
+  </div>
+  <div id="audit-log-area">
+    <h2>Audit Log</h2>
+    <p>Last 10 actions performed on the database:</p>   
+    <table id="auditLogDisplay">
+      <thead>
+        <tr>
+          <th>Action</th>
+          <th>Table</th>
+          <th>Date</th>
+          <th>Item</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% auditLog.forEach(function(log) { %>
+          <tr>
+            <td><%= log.audit_action %></td>
+            <td><%= log.audit_table %></td>
+            <td><%= new Intl.DateTimeFormat('en-US', {
+              dateStyle: 'short',
+              timeStyle: 'short',
+              timeZone: 'America/Denver',
+            }).format(log.audit_timestamp) %></td>
+            <td><%= log.item %></td>
+          </tr>
+        <% }) %>
+      </tbody>      
+    </table>
+  </div>
 <noscript>JavaScript must be enabled to use this page.</noscript>
 <script src="../../js/inventory.js"></script>

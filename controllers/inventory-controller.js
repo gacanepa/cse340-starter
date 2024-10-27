@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model");
+const auditLogModel = require("../models/audit-log-model");
 const utilities = require("../utilities/");
 
 const invCont = {};
@@ -10,11 +11,13 @@ invCont.buildManagement = async function (req, res, next) {
   const nav = await utilities.getNav();
   const links = await utilities.getManagementLinks();
   const classificationSelect = await utilities.buildClassificationList();
+  const auditLog = await auditLogModel.getAuditLog();
   res.render("./inventory/management", {
     title: "CSE Motors Inventory Management",
     nav,
     links,
     classificationSelect,
+    auditLog,
   });
 }
 

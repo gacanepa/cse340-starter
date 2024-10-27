@@ -337,6 +337,31 @@ ul.warning li {
   background-color: lightcoral;
 }
 
+#content-area {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#audit-log-area {
+  margin-left: 5em;
+}
+
+table {
+  border: 1px solid #333;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}
+
+th, td {
+  padding: 0.5em;
+  border: 1px solid #333;
+}
+
 @media (max-width: 1024px) {
   #car-info {
     flex-direction: column;

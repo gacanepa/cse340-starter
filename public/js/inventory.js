@@ -27,7 +27,7 @@ function buildInventoryList(data) {
   let inventoryDisplay = document.getElementById("inventoryDisplay"); 
   // Set up the table labels 
   let dataTable = '<thead>'; 
-  dataTable += '<tr><th>Vehicle Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>'; 
+  dataTable += '<tr><th>Vehicle Name</th><th colspan="2">Action</th></tr>'; 
   dataTable += '</thead>'; 
   // Set up the table body 
   dataTable += '<tbody>'; 
@@ -42,3 +42,41 @@ function buildInventoryList(data) {
   // Display the contents in the Inventory Management view 
   inventoryDisplay.innerHTML = dataTable; 
  }
+
+ // Build the audit log
+function buildAuditLog(data) {
+  let auditDisplay = document.getElementById("auditLogDisplay");
+  // Set up the table labels
+  let dataTable = '<thead>';
+  dataTable += '<tr><th>Action</th><th>Table</th><th>Date</th><th>Item</th></tr>';
+  dataTable += '</thead>';
+  // Set up the table body
+  dataTable += '<tbody>';
+  // Iterate over all log entries in the array and put each in a row
+  data.forEach(function (element) {
+    console.log(element.audit_id + ", " + element.audit_action + ", " + element.item);
+    dataTable += `<tr><td>${element.audit_action}</td><td>${element.audit_table}</td>`;
+    dataTable += `<tr><td>${element.audit_timestamp}</td><td>${element.item}</td></tr>`;
+  })
+  dataTable += '</tbody>';
+  // Display the contents in the Inventory Management view
+  auditDisplay.innerHTML = dataTable;
+}
+
+window.onload = function() {
+  let auditLogURL = "/inv/auditLog";
+  fetch(auditLogURL)
+  .then(function (response) {
+    if (response.ok) {
+      return response.json();
+    }
+    throw Error("An error occurred");
+  })
+  .then(function (data) {
+    console.log(data);
+    buildAuditLog(data);
+  })
+  .catch(function (error) {
+    console.log('Error details: ', error.message);
+  });
+};
