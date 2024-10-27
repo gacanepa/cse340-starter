@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS public.audit_log
     audit_action character varying NOT NULL,
     audit_table character varying NOT NULL,
     audit_timestamp timestamp with time zone NOT NULL DEFAULT now(),
-    audit_user character varying NOT NULL,
+    item_id integer NOT NULL,
     CONSTRAINT audit_log_pkey PRIMARY KEY (audit_id)
 );
 
